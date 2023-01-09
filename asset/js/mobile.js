@@ -39,6 +39,21 @@ function example2(obj) {
 }
 
 
+function openInfomationScene(url) {
+  console.log('openInfomationScene: '+url)
+  // Call iOS
+  if (window.webkit != undefined) {
+    if (window.webkit.messageHandlers.appInterface != undefined) {
+      window.webkit.messageHandlers.openInfomationScene.postMessage(url);
+    }
+  }
+
+  // Call Android
+  if (typeof App !== "undefined") {
+    App.openInfomationScene(url);
+  }
+}
+
 function setCustomHeight(height) {
   console.log('setCustomHeight: '+height)
   // Call iOS
