@@ -43,13 +43,9 @@ function openInfomationScene(url) {
   console.log('openInfomationScene: '+url)
   // Call iOS
   if (window.webkit != undefined) {
-    if (window.webkit.messageHandlers.appInterface != undefined) {
-      window.webkit.messageHandlers.openInfomationScene.postMessage(url);
-    } else {
-      console.error("[Error-2]window.webkit.messageHandlers.appInterface");
-    }
+    window.webkit.messageHandlers.openInfomationScene.postMessage(url);
   } else {
-    console.error("[Error-1]window.webkit.messageHandlers.appInterface");
+    console.error("[Error-1]window.webkit is undefined");
   }
 
   // Call Android
@@ -62,13 +58,9 @@ function setCustomHeight(height) {
   console.log('setCustomHeight: '+height)
   // Call iOS
   if (window.webkit != undefined) {
-    if (window.webkit.messageHandlers.appInterface != undefined) {
-      window.webkit.messageHandlers.setCustomHeight.postMessage(height);
-    } else {
-      console.error("[Error-2]window.webkit.messageHandlers.appInterface");
-    }
+    window.webkit.messageHandlers.setCustomHeight.postMessage(height);
   } else {
-    console.error("[Error-1]window.webkit.messageHandlers.appInterface");
+    console.error("[Error-1]window.webkit is undefined");
   }
 
   // Call Android
