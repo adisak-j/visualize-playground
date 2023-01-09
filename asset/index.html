@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile -->
+    <!-- Disable user scalable-->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>Asset</title>
+
+    <!-- Mobile -->
+    <!-- Disable user select -->
+    <style type="text/css">
+      * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+      }
+
+      html,body{
+            width: 100%;
+            height: 100%;
+            margin: 0; /* Space from this element (entire page) and others*/
+            padding: 0; /*space from content and border*/
+            border: solid blue;
+            border-width: 2px;
+            overflow:hidden;
+            display:block;
+            box-sizing: border-box;
+        }
+    </style>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <body>
+    <main role="main" class="container">
+        <h1 class="mt-5">Asset</h1>
+        <p class="lead">xxxxxx.</p>
+        <p class="lead" id="bodySize">xxxxxx.</p>
+        
+        <a href="https://www.apple.com" >Apple.com</a><br/>
+        <a href="https://www.apple.com" target="_blank">Apple.com (_blank)</a><br/>
+        <a href="https://www.apple.com" target="_top">Apple.com (_top)</a><br/>
+        <a href="https://www.apple.com" target="_self">Apple.com (_self)</a><br/>
+        <a href="https://www.apple.com" target="_parent">Apple.com (_parent)</a><br/>
+        <br/>
+        <br/>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn btn-primary" id="alertButton">Alert</button>
+            <button type="button" class="btn btn-primary" id="customHeightButton">Custom Height (500)</button>
+            <button type="button" class="btn btn-secondary" id="docHeightButton">Get document height</button>
+          </div>
+    </main>
+    
+    
+      <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <!-- Mobile communicate -->
+    <script src="js/mobile.js"></script>
+    
+
+    <script>
+        $( document ).ready(function() {
+            var height = $(document).height()
+            $('#bodySize').html('Init Body Height: '+height);
+        });
+
+        $('#alertButton').click(function(){
+            alert('Hello foto');
+        })
+
+        $('#customHeightButton').click(function(){
+            setCustomHeight(500);
+        })
+
+        $('#docHeightButton').click(function(){
+            var height = $(document).height()
+            console.log('height: '+height);
+            $('#bodySize').html('Init Body Height: '+height);
+        })
+
+    </script>
+  </body>
+</html>
