@@ -45,7 +45,11 @@ function openInfomationScene(url) {
   if (window.webkit != undefined) {
     if (window.webkit.messageHandlers.appInterface != undefined) {
       window.webkit.messageHandlers.openInfomationScene.postMessage(url);
+    } else {
+      console.error("[Error-2]window.webkit.messageHandlers.appInterface");
     }
+  } else {
+    console.error("[Error-1]window.webkit.messageHandlers.appInterface");
   }
 
   // Call Android
@@ -60,7 +64,11 @@ function setCustomHeight(height) {
   if (window.webkit != undefined) {
     if (window.webkit.messageHandlers.appInterface != undefined) {
       window.webkit.messageHandlers.setCustomHeight.postMessage(height);
+    } else {
+      console.error("[Error-2]window.webkit.messageHandlers.appInterface");
     }
+  } else {
+    console.error("[Error-1]window.webkit.messageHandlers.appInterface");
   }
 
   // Call Android
