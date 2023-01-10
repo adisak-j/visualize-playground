@@ -54,11 +54,11 @@ function openInfomationScene(url) {
   }
 }
 
-function setCustomHeight(height) {
-  console.log('setCustomHeight: '+height)
+function setContentHeight(height) {
+  console.log('setContentHeight: '+height)
   // Call iOS
   if (window.webkit != undefined) {
-    window.webkit.messageHandlers.setCustomHeight.postMessage(height);
+    window.webkit.messageHandlers.setContentHeight.postMessage(height);
   } else {
     console.error("[Error-1]window.webkit is undefined");
   }

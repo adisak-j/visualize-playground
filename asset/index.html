@@ -30,42 +30,83 @@
             display:block;
             box-sizing: border-box;
         }
+
+        html,
+        body {
+          height: 100%;
+        }
+
+        #page-content {
+          flex: 1 0 auto;
+        }
+
+        /* Other Classes for Page Styling */
+
+        body {
+          /* background: #007bff; */
+          /* background: linear-gradient(to right, #0062E6, #33AEFF); */
+        }
     </style>
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   </head>
-  <body>
-    <main role="main" class="container">
-        <h1 class="mt-5">Asset
-            <svg id="infomationButton" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+  <body class="d-flex flex-column">
+    <div id="page-content">
+      <div class="container text">
+        <div class="row justify-content">
+          <div class="col-md-7">
+            <h1 class="mt-5">Asset
+              <svg id="infomationButton" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                </svg>
+            </h1>
+            
+            <input type="radio" class="btn-check" name="options-outlined" id="assetButton" checked autocomplete="off">
+            <label class="btn btn-outline-primary" for="assetButton">สินทรัพย์</label>
+
+            <input type="radio" class="btn-check" name="options-outlined" id="asset2Button" autocomplete="off">
+            <label class="btn btn-outline-primary" for="asset2Button">หนีสิน & ส่วนของผู้ถือหุ้น</label>
+            <br/><br/>
+
+            <button type="button" class="btn btn-outline-info" id="sectorCompare">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-compass" viewBox="0 0 16 16">
+                <path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016zm6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"></path>
+                <path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z"></path>
               </svg>
-        </h1>
-        <p class="lead">xxxxxx.</p>
-        
-        <p class="lead" id="bodySize">xxxxxx.</p>
-        
-        <a href="https://www.apple.com" >Apple.com</a><br/>
-        <a href="https://netflix.com/" >netflix.com</a><br/>
-        <br/>
-        <br/>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="btn btn-primary" id="alertButton">Alert</button>
-            <button type="button" class="btn btn-primary" id="customHeightButton">Custom Height (500)</button>
-            <button type="button" class="btn btn-primary" id="customHeightButton2">Custom Height (800)</button>
-            <button type="button" class="btn btn-secondary" id="docHeightButton">Get document height</button>
+              Sector compare
+            </button>
+            
           </div>
-    </main>
+        </div>
+      </div>
+      <br/>
+      <div class="" style="width: 100%; height: 100%; background-color: rgba(0,0,255,0.1);">
+        <p class="lead" id="bodySize">xxxxxx.</p>
+        <!-- <a href="https://www.apple.com" >Apple.com</a><br/>
+        <a href="https://netflix.com/" >netflix.com</a><br/>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-primary" id="alertButton">Alert</button>
+          <button type="button" class="btn btn-primary" id="customHeightButton">Custom Height (500)</button>
+          <button type="button" class="btn btn-primary" id="customHeightButton2">Custom Height (800)</button>
+          <button type="button" class="btn btn-secondary" id="docHeightButton">Get document height</button>
+        </div> -->
+      </div>
+      <br/>
+    </div>
+    
+    <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+      <div class="container text-center">
+        <small>Copyright &copy; Footerxxxxxx</small>
+      </div>
+    </footer>
     
     
-      <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-    <!-- Mobile communicate -->
     <script src="js/mobile.js"></script>
     
-
     <script>
         $( document ).ready(function() {
             var height = $(document).height()
@@ -77,15 +118,19 @@
         })
 
         $('#infomationButton').click(function(){
-            openInfomationScene('https://www.apple.com')
+            openInfomationScene('https://www.figma.com/proto/IWl5ijMyO8yNE4IHvOczJt/UX-PreTrade-(V.1)?page-id=1850%3A19645&node-id=1850%3A19656&viewport=1132%2C451%2C0.61&scaling=min-zoom&starting-point-node-id=1850%3A19646')
         })
 
-        $('#customHeightButton').click(function(){
-            setCustomHeight(500);
+        $('#assetButton').click(function(){
+          setContentHeight(500);
         })
 
-        $('#customHeightButton2').click(function(){
-            setCustomHeight(800);
+        $('#asset2Button').click(function(){
+          setContentHeight(700);
+        })
+
+        $("#sectorCompare").click(function(){
+          setContentHeight(1200);
         })
 
         $('#docHeightButton').click(function(){
