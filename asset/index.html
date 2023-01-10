@@ -52,6 +52,7 @@
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <button type="button" class="btn btn-primary" id="alertButton">Alert</button>
             <button type="button" class="btn btn-primary" id="customHeightButton">Custom Height (200)</button>
+            <button type="button" class="btn btn-primary" id="customHeightButton2">Custom Height (800)</button>
             <button type="button" class="btn btn-secondary" id="docHeightButton">Get document height</button>
           </div>
     </main>
@@ -80,7 +81,11 @@
         })
 
         $('#customHeightButton').click(function(){
-            setCustomHeight(500);
+            setCustomHeight(200);
+        })
+
+        $('#customHeightButton2').click(function(){
+            setCustomHeight(800);
         })
 
         $('#docHeightButton').click(function(){
