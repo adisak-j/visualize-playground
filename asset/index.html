@@ -83,13 +83,13 @@
       <div class="" style="width: 100%; height: 100%; background-color: rgba(0,0,255,0.1);">
         <p class="lead" id="bodySize">xxxxxx.</p>
         <!-- <a href="https://www.apple.com" >Apple.com</a><br/>
-        <a href="https://netflix.com/" >netflix.com</a><br/>
+        <a href="https://netflix.com/" >netflix.com</a><br/> -->
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <button type="button" class="btn btn-primary" id="alertButton">Alert</button>
+          <!-- <button type="button" class="btn btn-primary" id="alertButton">Alert</button>
           <button type="button" class="btn btn-primary" id="customHeightButton">Custom Height (500)</button>
-          <button type="button" class="btn btn-primary" id="customHeightButton2">Custom Height (800)</button>
-          <button type="button" class="btn btn-secondary" id="docHeightButton">Get document height</button>
-        </div> -->
+          <button type="button" class="btn btn-primary" id="customHeightButton2">Custom Height (800)</button> -->
+          <button type="button" class="btn btn-link" id="docHeightButton">Get document height</button>
+        </div>
       </div>
       <br/>
     </div>
@@ -136,7 +136,7 @@
         $('#docHeightButton').click(function(){
             var height = $(document).height()
             console.log('height: '+height);
-            $('#bodySize').html('Init Body Height: '+height);
+            $('#bodySize').html('Body Height: '+height);
         })
 
     </script>
