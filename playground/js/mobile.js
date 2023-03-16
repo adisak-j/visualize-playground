@@ -35,5 +35,16 @@ function setContentHeight(height) {
 
 function testTokenExpired() {
   console.log('testTokenExpired')
-  window.webkit.messageHandlers.accessTokenExpired.postMessage("");
+  //window.webkit.messageHandlers.accessTokenExpired.postMessage("");
+  var promise = window.webkit.messageHandlers.accessTokenExpired.postMessage("");
+  
+  promise.then(
+    function(result) {
+      console.log("--- Success")
+      console.log(result); // "Stuff worked!"
+    },
+    function(err) {
+      console.log("--- Error")
+      console.log(err); // Error: "It broke"
+    });
 }
