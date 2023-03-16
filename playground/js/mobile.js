@@ -35,5 +35,5 @@ function setContentHeight(height) {
 
 function testTokenExpired() {
   console.log('testTokenExpired')
-  window.webkit.messageHandlers.accessTokenExpired.postMessage();
+  window.webkit.messageHandlers.accessTokenExpired.postMessage("");
 }
