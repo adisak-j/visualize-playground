@@ -31,3 +31,9 @@ function setContentHeight(height) {
     App.setCustomHeight(obj);
   }
 }
+
+
+function testTokenExpired() {
+  console.log('testTokenExpired')
+  window.webkit.messageHandlers.accessTokenExpired.postMessage();
+}

@@ -57,6 +57,7 @@
           <button type="button" class="btn btn-primary" id="assetButton">Custom Height (500)</button>
           <button type="button" class="btn btn-primary" id="customHeightButton2">Custom Height (800)</button>
           <button type="button" class="btn btn-link" id="docHeightButton">Get document height</button>
+          <button type="button" class="btn btn-link" id="testTokenExpiredButton">Test Token Expired</button>
         </div>
     
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
@@ -95,6 +96,10 @@
             var height = $(document).height()
             console.log('height: '+height);
             $('#bodySize').html('Body Height: '+height);
+        })
+
+        $('#testTokenExpiredButton').click(function(){
+            testTokenExpired();
         })
 
         function foto(data) {
