@@ -98,6 +98,11 @@ function getWebViewVisibleHeight() {
       difBetweenVisibleAndDiv = difBetweenVisibleAndDiv + divRect.height + 20;
       console.log("difBetweenVisibleAndDiv: "+difBetweenVisibleAndDiv );
 
+      if ((visibleContnetHeight + offScreenTopArea) > divTop) {
+        console.log("☝🏻 Progress is still showing")
+        return
+      }
+
       scrollUp(difBetweenVisibleAndDiv);
     },
     function(err) {
