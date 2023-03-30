@@ -47,18 +47,18 @@ function testTokenExpired() {
     });
 }
 
-function playTapticEngine() {
-  console.log('playTapticEngine')
+function playTapticEngine(value) {
+  console.log('playTapticEngine :'+value)
   // Call iOS
   if (window.webkit != undefined) {
-    window.webkit.messageHandlers.playHaptic.postMessage(1);
+    window.webkit.messageHandlers.playHaptic.postMessage(value);
   }
 }
 
-function scrollUp() {
-  console.log('scrollUp')
+function scrollUp(value) {
+  console.log('scrollUp :'+value)
   // Call iOS
   if (window.webkit != undefined) {
-    window.webkit.messageHandlers.scrollUp.postMessage(100);
+    window.webkit.messageHandlers.scrollUp.postMessage(value);
   }
 }
