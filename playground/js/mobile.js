@@ -80,11 +80,13 @@ function getWebViewVisibleHeight() {
 
       
       console.log("visibleContnetHeight: "+visibleContnetHeight ); 
+      console.log("divRect: "+divRect );
       console.log("divTop: "+divTop );
+      
       var difBetweenVisibleAndDiv = (divTop - visibleContnetHeight); 
 
       console.log("difBetweenVisibleAndDiv: "+difBetweenVisibleAndDiv );
-      difBetweenVisibleAndDiv = difBetweenVisibleAndDiv + 66;
+      difBetweenVisibleAndDiv = difBetweenVisibleAndDiv + divRect.height + 20;
       console.log("difBetweenVisibleAndDiv: "+difBetweenVisibleAndDiv );
 
       scrollUp(difBetweenVisibleAndDiv);
