@@ -62,3 +62,17 @@ function scrollUp(value) {
     window.webkit.messageHandlers.scrollUp.postMessage(value);
   }
 }
+
+function getWebViewVisibleHeight() {
+  var promise = window.webkit.messageHandlers.getWebViewVisibleHeight.postMessage("");
+  
+  promise.then(
+    function(result) {
+      console.log("--- Success")
+      console.log(result); // "Stuff worked!"
+    },
+    function(err) {
+      console.log("--- Error")
+      console.log(err); // Error: "It broke"
+    });
+}
