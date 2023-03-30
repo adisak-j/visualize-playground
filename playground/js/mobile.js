@@ -78,12 +78,10 @@ function getWebViewVisibleHeight() {
       var divTop = divRect.top;
       var divLeft = divRect.left;
 
-      console.log('The div is positioned at top: ' + divTop + ' and left: ' + divLeft + ' relative to the viewport.');
-
-
+      
       console.log("visibleContnetHeight: "+visibleContnetHeight ); 
       console.log("divTop: "+divTop );
-      const difBetweenVisibleAndDiv = (divTop - visibleContnetHeight) + 44; 
+      const difBetweenVisibleAndDiv = (divTop - visibleContnetHeight) - 44; 
       console.log("difBetweenVisibleAndDiv: "+difBetweenVisibleAndDiv );
 
       scrollUp(difBetweenVisibleAndDiv);
