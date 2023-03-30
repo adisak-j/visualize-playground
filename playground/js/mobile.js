@@ -34,8 +34,6 @@ function setContentHeight(height) {
 
 
 function testTokenExpired() {
-  console.log('testTokenExpired')
-  //window.webkit.messageHandlers.accessTokenExpired.postMessage("");
   var promise = window.webkit.messageHandlers.accessTokenExpired.postMessage("");
   
   promise.then(
@@ -47,4 +45,12 @@ function testTokenExpired() {
       console.log("--- Error")
       console.log(err); // Error: "It broke"
     });
+}
+
+function playTapticEngine() {
+  console.log('playTapticEngine')
+  // Call iOS
+  if (window.webkit != undefined) {
+    window.webkit.messageHandlers.playHaptic.postMessage("1");
+  }
 }
