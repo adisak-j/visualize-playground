@@ -68,8 +68,12 @@ function getWebViewVisibleHeight() {
   
   promise.then(
     function(result) {
-      console.log("--- Success")
-      const visibleContnetHeight = parseInt(result);
+      console.log("--- Success:"+ result)
+      let obj = JSON.parse(result);
+      const visibleContnetHeight = parseInt(obj.visibleHeight);
+      const offScreenTopArea = parseInt(obj.offScreenTopArea);
+      console.log("visibleContnetHeight: "+visibleContnetHeight );
+      console.log("offScreenTopArea: "+offScreenTopArea );
       var viewportHeight = window.innerHeight;
 
       if (visibleContnetHeight == viewportHeight) {
