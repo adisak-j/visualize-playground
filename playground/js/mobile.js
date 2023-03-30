@@ -70,7 +70,12 @@ function getWebViewVisibleHeight() {
     function(result) {
       console.log("--- Success")
       const visibleContnetHeight = parseInt(result);
+      var viewportHeight = window.innerHeight;
 
+      if (visibleContnetHeight == viewportHeight) {
+        console.log("🥹 Web is showing all content")
+        return
+      }
 
       var divRect = document.getElementById('element1').getBoundingClientRect();
 
