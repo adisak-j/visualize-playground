@@ -117,7 +117,8 @@
 
         $('#tapticButton').click(function(){
           var haptic = $('#haptic').val();
-          playTapticEngine(haptic);
+          var hapticInt = parseInt(haptic);
+          playTapticEngine(hapticInt);
         })
 
         $('#scrollUpButton').click(function(){
