@@ -59,6 +59,7 @@
           <button type="button" class="btn btn-link" id="docHeightButton">Get document height</button>
           <button type="button" class="btn btn-link" id="testTokenExpiredButton">Test Token Expired</button>
           <button type="button" class="btn btn-link" id="tapticButton">Play Haptic</button>
+          <button type="button" class="btn btn-link" id="scrollUpButton">Scroll UP</button>
         </div>
     
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
@@ -104,7 +105,11 @@
         })
 
         $('#tapticButton').click(function(){
-            playTaptic();
+          playTapticEngine();
+        })
+
+        $('#scrollUpButton').click(function(){
+          scrollUp();
         })
 
         function foto(data) {
