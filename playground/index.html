@@ -46,29 +46,46 @@
           /* background: #007bff; */
           /* background: linear-gradient(to right, #0062E6, #33AEFF); */
         }
+
+        .myDiv {
+          width: 100%;
+          background-color: red;
+        }
+
+        .footer {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          padding: 10px;
+          text-align: center;
+        }
+
+        .myDiv2 {
+          width: 100%;
+          background-color: green;
+          position: fixed;
+          bottom: 100px !important;
+          width: 100%;
+          padding: 10px;
+          text-align: center;
+        }
     </style>
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   </head>
-  <body class="d-flex flex-column"> Playground
-    <a href="https://www.apple.com" >Apple.com</a><br/>
-    <a href="https://netflix.com/" >netflix.com</a><br/>
+  <body class="d-flex flex-column">
+    
+    <a href="https://www.apple.com" style="display: none;" >Apple.com</a><br/>
+    <a href="https://netflix.com/" style="display: none;" >netflix.com</a><br/>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
           <button type="button" class="btn btn-primary" id="alertButton">Alert</button>
-          <button type="button" class="btn btn-primary" id="assetButton">Custom Height (500)</button>
           <button type="button" class="btn btn-primary" id="customHeightButton2">Custom Height (800)</button>
           <button type="button" class="btn btn-link" id="docHeightButton">Get document height</button>
           <button type="button" class="btn btn-link" id="testTokenExpiredButton">Test Token Expired</button>
-          <button type="button" class="btn btn-link" id="tapticButton">Play Haptic</button>
-          <button type="button" class="btn btn-link" id="scrollUpButton">Scroll UP</button>
+          <button type="button" class="btn btn-link" id="scrollToElement1Button">scroll to element-1</button>
+          <button type="button" class="btn btn-link" id="scrollToElement2Button">scroll to element-2</button>
         </div>
-    
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-    <script src="js/mobile.js"></script>
-    
-    <label for="cars">Haptic</label>
+    <br/>
+    <label for="cars">Select Haptic Type</label>
     <select name="haptic" id="haptic">
       <option value="0">light</option>
       <option value="1">medium</option>
@@ -76,9 +93,23 @@
       <option value="3">soft</option>
       <option value="4">rigid</option>
     </select>
+    <button type="button" class="btn btn-link" id="tapticButton">Play Haptic</button>
+    <br>
+    <input type="text" id="scrollUpOffset" name="scrollUpOffset" value="100">
+    <button type="button" class="btn btn-link" id="scrollUpButton">Scroll UP</button>
     <br><br>
-    <input type="text" id="scrollUpOffset" name="scrollUpOffset" value="100"><br><br>
-    <br><br>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script src="js/mobile.js"></script>
+    
+    <!--  -->
+    <div class="myDiv2" id="element2">Element-2</div>
+    <div class="myDiv footer" id="element1">Element-1</div>
+
+    <!--  -->
     <script>
         $( document ).ready(function() {
             var height = $(document).height()
@@ -125,6 +156,22 @@
           var offset = $('#scrollUpOffset').val();
           var offsetInt = parseInt(offset);
           scrollUp(offsetInt);
+        })
+
+        $('#scrollToElement1Button').click(function(){
+          const element1 = document.getElementById('element1');
+          let isVisiable = $('#element1').is(':visible')
+          var divPosition = $('#element1').offset();
+
+
+          // Calculate the length from the viewport to the div
+          var lengthFromViewportToDiv = divPosition.top - $(window).scrollTop();
+          console.log('isVisiable: '+isVisiable);
+          console.log('The length from the viewport to the div is ' + lengthFromViewportToDiv + ' pixels.');
+        })
+
+        $('#scrollToElement2Button').click(function(){
+          
         })
 
         function foto(data) {
