@@ -51,6 +51,14 @@ function playTapticEngine() {
   console.log('playTapticEngine')
   // Call iOS
   if (window.webkit != undefined) {
-    window.webkit.messageHandlers.playHaptic.postMessage("1");
+    window.webkit.messageHandlers.playHaptic.postMessage(1);
+  }
+}
+
+function scrollUp() {
+  console.log('scrollUp')
+  // Call iOS
+  if (window.webkit != undefined) {
+    window.webkit.messageHandlers.scrollUp.postMessage(100);
   }
 }
