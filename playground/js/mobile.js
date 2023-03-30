@@ -63,50 +63,91 @@ function scrollUp(value) {
   }
 }
 
-function getWebViewVisibleHeight() {
-  var promise = window.webkit.messageHandlers.getWebViewVisibleHeight.postMessage("");
-  
-  promise.then(
-    function(result) {
-      console.log("--- Success:"+ result)
-      let obj = JSON.parse(result);
-      const visibleContnetHeight = parseInt(obj.visibleHeight);
-      const offScreenTopArea = parseInt(obj.offScreenTopArea);
-      console.log("visibleContnetHeight: "+visibleContnetHeight );
-      console.log("offScreenTopArea: "+offScreenTopArea );
-      var viewportHeight = window.innerHeight;
+async function getWebViewVisibleHeight() {
+  try {
+    const result = await window.webkit.messageHandlers.getWebViewVisibleHeight.postMessage("");
+    console.log("--- Success:" + result);
+    const { visibleHeight, offScreenTopArea } = JSON.parse(result);
+    console.log("visibleContnetHeight:", visibleHeight);
+    console.log("offScreenTopArea:", offScreenTopArea);
+    const viewportHeight = window.innerHeight;
 
-      if (visibleContnetHeight == viewportHeight) {
-        console.log("🥹 Web is showing all content")
-        return
-      }
+    if (visibleHeight === viewportHeight) {
+      console.log("☝🏻 Web is showing all content");
+      return;
+    }
 
-      var divRect = document.getElementById('element1').getBoundingClientRect();
+    const divRect = document.getElementById("element1").getBoundingClientRect();
 
-      // Calculate the position of the div relative to the viewport
-      var divTop = divRect.top;
-      var divLeft = divRect.left;
+    // Calculate the position of the div relative to the viewport
+    const divTop = divRect.top;
+    const divLeft = divRect.left;
 
-      
-      console.log("visibleContnetHeight: "+visibleContnetHeight ); 
-      console.log("divRect: "+divRect );
-      console.log("divTop: "+divTop );
-      
-      var difBetweenVisibleAndDiv = (divTop - visibleContnetHeight); 
+    console.log("visibleContnetHeight:", visibleHeight);
+    console.log("divRect:", divRect);
+    console.log("divTop:", divTop);
 
-      console.log("difBetweenVisibleAndDiv: "+difBetweenVisibleAndDiv );
-      difBetweenVisibleAndDiv = difBetweenVisibleAndDiv + divRect.height + 20;
-      console.log("difBetweenVisibleAndDiv: "+difBetweenVisibleAndDiv );
+    let difBetweenVisibleAndDiv = divTop - visibleHeight;
+    console.log("difBetweenVisibleAndDiv:", difBetweenVisibleAndDiv);
+    difBetweenVisibleAndDiv += divRect.height + 20;
+    console.log("difBetweenVisibleAndDiv:", difBetweenVisibleAndDiv);
 
-      if ((visibleContnetHeight + offScreenTopArea) > divTop) {
-        console.log("☝🏻 Progress is still showing")
-        return
-      }
+    if (visibleHeight + offScreenTopArea > divTop) {
+      console.log("☝🏻☝🏻 Progress is still showing");
+      return;
+    }
 
-      scrollUp(difBetweenVisibleAndDiv);
-    },
-    function(err) {
-      console.log("--- Error")
-      console.log(err); // Error: "It broke"
-    });
+    scrollUp(difBetweenVisibleAndDiv);
+  } catch (err) {
+    console.log("--- Error");
+    console.log(err);
+  }
 }
+
+// function getWebViewVisibleHeight() {
+//   var promise = window.webkit.messageHandlers.getWebViewVisibleHeight.postMessage("");
+  
+//   promise.then(
+//     function(result) {
+//       console.log("--- Success:"+ result)
+//       let obj = JSON.parse(result);
+//       const visibleContnetHeight = parseInt(obj.visibleHeight);
+//       const offScreenTopArea = parseInt(obj.offScreenTopArea);
+//       console.log("visibleContnetHeight: "+visibleContnetHeight );
+//       console.log("offScreenTopArea: "+offScreenTopArea );
+//       var viewportHeight = window.innerHeight;
+
+//       if (visibleContnetHeight == viewportHeight) {
+//         console.log("🥹 Web is showing all content")
+//         return
+//       }
+
+//       var divRect = document.getElementById('element1').getBoundingClientRect();
+
+//       // Calculate the position of the div relative to the viewport
+//       var divTop = divRect.top;
+//       var divLeft = divRect.left;
+
+      
+//       console.log("visibleContnetHeight: "+visibleContnetHeight ); 
+//       console.log("divRect: "+divRect );
+//       console.log("divTop: "+divTop );
+      
+//       var difBetweenVisibleAndDiv = (divTop - visibleContnetHeight); 
+
+//       console.log("difBetweenVisibleAndDiv: "+difBetweenVisibleAndDiv );
+//       difBetweenVisibleAndDiv = difBetweenVisibleAndDiv + divRect.height + 20;
+//       console.log("difBetweenVisibleAndDiv: "+difBetweenVisibleAndDiv );
+
+//       if ((visibleContnetHeight + offScreenTopArea) > divTop) {
+//         console.log("☝🏻 Progress is still showing")
+//         return
+//       }
+
+//       scrollUp(difBetweenVisibleAndDiv);
+//     },
+//     function(err) {
+//       console.log("--- Error")
+//       console.log(err); // Error: "It broke"
+//     });
+// }
