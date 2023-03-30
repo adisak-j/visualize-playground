@@ -69,7 +69,24 @@ function getWebViewVisibleHeight() {
   promise.then(
     function(result) {
       console.log("--- Success")
-      console.log(result); // "Stuff worked!"
+      const visibleContnetHeight = parseInt(result);
+
+
+      var divRect = document.getElementById('element1').getBoundingClientRect();
+
+      // Calculate the position of the div relative to the viewport
+      var divTop = divRect.top;
+      var divLeft = divRect.left;
+
+      console.log('The div is positioned at top: ' + divTop + ' and left: ' + divLeft + ' relative to the viewport.');
+
+
+      console.log("visibleContnetHeight: "+visibleContnetHeight ); 
+      console.log("divTop: "+divTop );
+      const difBetweenVisibleAndDiv = (divTop - visibleContnetHeight) + 44; 
+      console.log("difBetweenVisibleAndDiv: "+difBetweenVisibleAndDiv );
+
+      scrollUp(difBetweenVisibleAndDiv);
     },
     function(err) {
       console.log("--- Error")
