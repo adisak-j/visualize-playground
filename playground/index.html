@@ -159,15 +159,16 @@
         })
 
         $('#scrollToElement1Button').click(function(){
-          const element1 = document.getElementById('element1');
-          let isVisiable = $('#element1').is(':visible')
-          var divPosition = $('#element1').offset();
+          // const element1 = document.getElementById('element1');
+          // let isVisiable = $('#element1').is(':visible')
+          // var divPosition = $('#element1').offset();
 
 
-          // Calculate the length from the viewport to the div
-          var lengthFromViewportToDiv = divPosition.top - $(window).scrollTop();
-          console.log('isVisiable: '+isVisiable);
-          console.log('The length from the viewport to the div is ' + lengthFromViewportToDiv + ' pixels.');
+          // // Calculate the length from the viewport to the div
+          // var lengthFromViewportToDiv = divPosition.top - $(window).scrollTop();
+          // console.log('isVisiable: '+isVisiable);
+          // console.log('The length from the viewport to the div is ' + lengthFromViewportToDiv + ' pixels.');
+          getWebViewVisibleHeight();
         })
 
         $('#scrollToElement2Button').click(function(){
