@@ -72,7 +72,6 @@
           <button type="button" class="btn btn-link" id="docHeightButton">Get document height</button>
           <button type="button" class="btn btn-link" id="testTokenExpiredButton">Test Token Expired</button>
           <button type="button" class="btn btn-link" id="scrollToElement1Button">scroll to element-1</button>
-          <button type="button" class="btn btn-link" id="scrollToElement2Button">scroll to element-2</button>
         </div>
     <br/>
     <label for="cars">Select Haptic Type</label>
@@ -104,6 +103,7 @@
         $( document ).ready(function() {
             var height = $(document).height()
             $('#bodySize').html('Init Body Height: '+height);
+            setContentHeight(700);
         });
 
         $('#alertButton').click(function(){
