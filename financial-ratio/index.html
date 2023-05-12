@@ -38,7 +38,7 @@
         }
 
         div {
-          font-size: 50px;
+          /* font-size: 50px; */
         }
 
     </style>
@@ -65,7 +65,8 @@
       });
 
       function reloadData() {
-        alert('Hello Reload Data');
+        let date = new Date();
+        $("body").append("<br/>reloadData<br/><div>"+date+"</div>")
       }
     </script>
   </body>
