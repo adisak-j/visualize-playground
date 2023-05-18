@@ -10,7 +10,7 @@
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
     <title></title>
-    <h1>ROE</h1>
+    <h1>ROE coming soon</h1>
 
     <!-- Mobile -->
     <!-- Disable user select -->
@@ -25,13 +25,20 @@
             height: 100%;
             margin: 0; /* Space from this element (entire page) and others*/
             padding: 0; /*space from content and border*/
-            border: solid #BB2649 !important;
-            border-width: 1px;
+            /* border: solid #BB2649 !important;
+            border-width: 1px; */
             overflow:hidden;
             display:block;
             box-sizing: border-box;
-            background-color: #EDCDC2 !important;
+            background-color: #FCFCFC !important;
         }
+
+        h1 {
+          text-align: center;
+          margin-top: 50%;
+          color: #929292 !important;
+        }
+
 
         html,
         body {
@@ -64,6 +71,12 @@
       $(document).ready(function() {
         const urlParams = new URLSearchParams(window.location.search);
         $("body").append("<div>"+window.location+"</div>")
+
+        setTimeout(function() {
+          if (window.webkit != undefined) {
+            window.webkit.messageHandlers.hideLoading.postMessage("");
+          }
+        }, 500);
       });
 
       function reloadData() { 
