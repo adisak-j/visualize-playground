@@ -4,4 +4,4 @@ git checkout develop
 git pull origin develop
 git merge main -m "ci: merge branch main to develop [skip ci]"
 git push origin develop
-git checkout main 
+git checkout main
