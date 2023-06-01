@@ -104,6 +104,7 @@
             var height = $(document).height()
             $('#bodySize').html('Init Body Height: '+height);
             setContentHeight(300);
+            window.webkit.messageHandlers.scrollUp.hideLoading("");
         });
 
         $('#alertButton').click(function(){
