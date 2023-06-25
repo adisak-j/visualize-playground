@@ -45,6 +45,14 @@
       setCookie("tabToZoomStatus", status, 7);
       alert("tabToZoomStatus has been set to: " + status);
     }
+
+    function hideLoading() {
+      window.webkit.messageHandlers.hideLoading.postMessage();
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      hideLoading();
+    });
   </script>
 </head>
 <body>
