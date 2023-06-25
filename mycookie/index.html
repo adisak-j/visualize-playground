@@ -48,7 +48,7 @@
 
     function hideLoading() {
       if (window.webkit != undefined) {
-        window.webkit.messageHandlers.hideLoading.postMessage();
+        window.webkit.messageHandlers.hideLoading.postMessage('');
       } else {
         console.error("[Error-1]window.webkit is undefined");
       }
