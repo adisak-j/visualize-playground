@@ -47,6 +47,20 @@ function testTokenExpired() {
     });
 }
 
+function testGetUserInfomation() {
+  var promise = window.webkit.messageHandlers.getUserInfomation.postMessage("");
+  
+  promise.then(
+    function(result) {
+      console.log("--- Success")
+      console.log(result); // "Stuff worked!"
+    },
+    function(err) {
+      console.log("--- Error")
+      console.log(err); // Error: "It broke"
+    });
+}
+
 function playTapticEngine(value) {
   console.log('playTapticEngine :'+value)
   // Call iOS

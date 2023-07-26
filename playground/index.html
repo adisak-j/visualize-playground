@@ -71,6 +71,7 @@
           <button type="button" class="btn btn-primary" id="customHeightButton2">Custom Height (600)</button>
           <button type="button" class="btn btn-link" id="docHeightButton">Get document height</button>
           <button type="button" class="btn btn-link" id="testTokenExpiredButton">Test Token Expired</button>
+          <button type="button" class="btn btn-link" id="testGetUserInfomation">Test Get user infomation</button>
           <button type="button" class="btn btn-link" id="scrollToElement1Button">scroll to element-1</button>
         </div>
     <br/>
@@ -135,6 +136,10 @@
 
         $('#testTokenExpiredButton').click(function(){
             testTokenExpired();
+        })
+        
+        $('#testGetUserInfomation').click(function(){
+            testGetUserInfomation();
         })
 
         $('#tapticButton').click(function(){
