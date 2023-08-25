@@ -61,6 +61,34 @@ function testGetUserInfomation() {
     });
 }
 
+function getSupportedLanguages() {
+  var promise = window.webkit.messageHandlers.getSupportedLanguages.postMessage("");
+
+  promise.then(
+    function(result) {
+      console.log("--- Success")
+      console.log(result); // "Stuff worked!"
+    },
+    function(err) {
+      console.log("--- Error")
+      console.log(err); // Error: "It broke"
+    });
+}
+
+function getContent() {
+  var promise = window.webkit.messageHandlers.getLocalizedContents.postMessage("");
+
+  promise.then(
+    function(result) {
+      console.log("--- Success")
+      console.log(result); // "Stuff worked!"
+    },
+    function(err) {
+      console.log("--- Error")
+      console.log(err); // Error: "It broke"
+    });
+}
+
 function playTapticEngine(value) {
   console.log('playTapticEngine :'+value)
   // Call iOS
