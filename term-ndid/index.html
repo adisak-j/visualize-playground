@@ -83,3 +83,26 @@
 <p><span style="font-size:22px"><strong>8.&nbsp;กฎหมายที่บังคับใช้</strong></span></p>
 
 <p><span style="font-size:22px">ข้อตกลงและเงื่อนไขการใช้งานเว็บไซต์นี้อยู่ภายใต้บังคับแห่งกฎหมายไทย</span></p>
+
+<script>
+    window.onscroll = function(ev) {
+        if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight) {
+            didScrollContentToBottom();
+        }
+    };
+
+    function didScrollContentToBottom() {
+        console.log('openInfomationScene: '+url)
+        // Call iOS
+        if (window.webkit != undefined) {
+            window.webkit.messageHandlers.didScrollContentToBottom.postMessage("");
+        } else {
+            console.error("[Error-1]window.webkit is undefined");
+        }
+
+        // Call Android
+        if (typeof App !== "undefined") {
+            App.didScrollContentToBottom(url);
+        }
+    }
+</script>
