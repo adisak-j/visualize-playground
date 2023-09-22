@@ -92,7 +92,6 @@
     };
 
     function didScrollContentToBottom() {
-        console.log('openInfomationScene: '+url)
         // Call iOS
         if (window.webkit != undefined) {
             window.webkit.messageHandlers.didScrollContentToBottom.postMessage("");
@@ -102,7 +101,7 @@
 
         // Call Android
         if (typeof App !== "undefined") {
-            App.didScrollContentToBottom(url);
+            App.didScrollContentToBottom("");
         }
     }
 </script>
